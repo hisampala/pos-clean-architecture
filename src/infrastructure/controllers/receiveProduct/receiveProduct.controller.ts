@@ -2,6 +2,7 @@ import { ZodValidationPipe } from "@anatine/zod-nestjs";
 import {
   Body,
   Controller,
+  Get,
   Inject,
   Param,
   Post,
@@ -18,6 +19,7 @@ import {
   ReceiveProductUsecases,
   UpdateReceiveProductUsecases,
 } from "src/usecases/receiveProduct";
+import { GetReceiveProductListUsecase } from "src/usecases/receiveProduct/getReceiveProductList.usecases";
 import { ReceiveProductPresenter } from "./receiveproduct.presenter";
 
 @Controller(controllerPath.receiveProduct)
@@ -31,6 +33,8 @@ export class ReceiveProductController {
     private readonly receiveProductUseCasesProxy: UseCaseProxy<ReceiveProductUsecases>,
     @Inject(UseCaseProxyReceiveProduct.updateReceiveProduct)
     private readonly receiveUpdateProductUseCasesProxy: UseCaseProxy<UpdateReceiveProductUsecases>,
+    @Inject(UseCaseProxyReceiveProduct.getReceiveProductList)
+    private readonly GetReceiveProductListUseCaseProxy: UseCaseProxy<GetReceiveProductListUsecase>,
   ) {}
   @Post()
   onReceiveProduct(@Body() item: ReceiveProductItem) {
@@ -44,5 +48,9 @@ export class ReceiveProductController {
     return this.receiveUpdateProductUseCasesProxy
       .getInstance()
       .execute(id, item);
+  }
+  @Get()
+  getGetReceiveProductList() {
+    return this.GetReceiveProductListUseCaseProxy.getInstance().execute();
   }
 }
