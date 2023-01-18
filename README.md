@@ -12,10 +12,14 @@ $ npm install
 ## Running the Prisma
 $ change Filename .env.dev  be .env
 $ change URLDATABASE from .env 
+```bash
+# generate type
 $ npx prima generate 
-$ if you use If using a database that does not use Mongodb please run 
+```
+```bash
+# if you use If using a database that does not use Mongodb please run 
 $ npx prima migrate dev --name init 
-
+````
 ## Running the app
 
 ```bash
