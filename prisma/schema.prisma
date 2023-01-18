@@ -1,0 +1,63 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  name     = "pos" // <-- You can change according to your wishes.
+}
+
+datasource db {
+  provider = "mongodb" // <-- You can change according to your wishes.
+  url      = env("DATABASE_URL") 
+}
+
+model Products {
+  id          String        @id @default(uuid()) @map("_id")
+  name        String        @unique()
+  price       Int           @default(0)
+  cost        Int           @default(0)
+  amount      Int           @default(0)
+  status      TYPEPRODUCTS
+  OrderDetail OrderDetail[]
+}
+
+enum TYPEPRODUCTS {
+  INSTOCK
+  SOLDOUT
+}
+
+model Orders {
+  id          String        @id @default(uuid()) @map("_id")
+  status      ORDERSTATUS    @default(PENDING)
+  paymentType PAYMENTTYPE
+  createAt    DateTime?     @default(now())
+  updateAt    DateTime?     @updatedAt()
+  OrderDetail OrderDetail[]
+}
+
+enum ORDERSTATUS {
+  PENDING
+  PROCESSING
+  ON_HOLD
+  COMPLETED
+  CANCELLED
+  REFUNDED
+  FAILED
+  TRASH
+}
+
+enum PAYMENTTYPE {
+  CASH
+  BANKTRANFER
+}
+
+model OrderDetail {
+  id        String   @id @default(uuid()) @map("_id")
+  productId String
+  products  Products @relation(references: [id], fields: [productId])
+  quantity  Int
+  cost      Int
+  price     Int
+  orderId   String
+  Orders     Orders    @relation(references: [id], fields: [orderId])
+}
