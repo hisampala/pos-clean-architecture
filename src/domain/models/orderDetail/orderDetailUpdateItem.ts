@@ -1,9 +1,8 @@
 import { ApiProperty } from "@nestjs/swagger";
 import { OrderDetailEntity } from "src/domain/entities/orderDetail.entity";
-import { createOrderDetailValidDTO } from "src/domain/validate/orderDetail/createOrderDetail.validate";
-
+import { updateOrderDetailValidDTO } from "../../validate/orderDetail";
 export class OrderDetailUpdateItem
-  extends createOrderDetailValidDTO
+  extends updateOrderDetailValidDTO
   implements OrderDetailEntity
 {
   @ApiProperty({ required: true })

@@ -10,4 +10,4 @@ const isvalid = z.object({
   orderId: z.string().uuid(),
 });
 const orderValid = extendApi(isvalid);
-export class createOrderDetailValidDTO extends createZodDto(orderValid) {}
+export class updateOrderDetailValidDTO extends createZodDto(orderValid) {}

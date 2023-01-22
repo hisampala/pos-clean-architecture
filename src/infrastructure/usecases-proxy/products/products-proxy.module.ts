@@ -49,7 +49,6 @@ export class ProductsProxyModule {
           useFactory: (context: PrismaService) =>
             new UseCaseProxy(new GetProductListUsecases(context)),
         },
-        PrismaService,
       ],
       exports: [
         UseCaseProxyProducts.creatProductProxy,

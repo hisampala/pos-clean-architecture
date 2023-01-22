@@ -6,6 +6,7 @@ const EnvSchema = z.object({
     .refine((port) => !isNaN(Number.parseInt(port)))
     .transform((port) => Number.parseInt(port)),
   DATABASE_URL: z.string(),
+  CACHE_URL: z.string(),
 });
 
 export type TENV = z.infer<typeof EnvSchema>;

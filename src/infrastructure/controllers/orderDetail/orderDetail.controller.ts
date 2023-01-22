@@ -18,7 +18,7 @@ import {
 import { ApiResponseType } from "src/infrastructure/common/swagger/response.decorator";
 
 import { UseCaseProxyOrderDetail } from "src/infrastructure/contant";
-import controllerPath from "src/infrastructure/contant/controller-path";
+import { controllerPath } from "src/infrastructure/contant/controller-path";
 import { UseCaseProxy } from "src/infrastructure/usecases-proxy/usescases-proxy";
 import {
   CreateOrderDetailUsecases,

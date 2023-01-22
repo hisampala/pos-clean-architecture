@@ -19,7 +19,7 @@ import {
   UpdateProductsUserCases,
 } from "src/usecases/products";
 import { UseCaseProxyProducts } from "../../contant";
-import controllerPath from "../../contant/controller-path";
+import { controllerPath } from "../../contant/controller-path";
 import { UseCaseProxy } from "../../usecases-proxy/usescases-proxy";
 import { ProductPresenter } from "./prouduct.presenter";
 import { ZodValidationPipe } from "@anatine/zod-nestjs";

@@ -13,7 +13,7 @@ import { ApiTags, ApiResponse, ApiExtraModels } from "@nestjs/swagger";
 import { ReceiveProductItem } from "src/domain/models";
 import { UpdateReceiveProductItem } from "src/domain/models/receiveProduct/updateReceiveProductItem";
 import { UseCaseProxyReceiveProduct } from "src/infrastructure/contant";
-import controllerPath from "src/infrastructure/contant/controller-path";
+import { controllerPath } from "src/infrastructure/contant/controller-path";
 import { UseCaseProxy } from "src/infrastructure/usecases-proxy/usescases-proxy";
 import {
   ReceiveProductUsecases,

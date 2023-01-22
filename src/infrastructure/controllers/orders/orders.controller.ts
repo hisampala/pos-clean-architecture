@@ -14,7 +14,7 @@ import { ApiBody, ApiExtraModels, ApiResponse, ApiTags } from "@nestjs/swagger";
 import { OrdersCreateItem, OrdersUpdateItem } from "src/domain/models";
 import { ApiResponseType } from "src/infrastructure/common/swagger/response.decorator";
 import { UseCaseProxyOrder } from "src/infrastructure/contant";
-import controllerPath from "src/infrastructure/contant/controller-path";
+import { controllerPath } from "src/infrastructure/contant/controller-path";
 
 import { UseCaseProxy } from "src/infrastructure/usecases-proxy/usescases-proxy";
 import {
